@@ -1,13 +1,25 @@
 // Datos del juego
 const listaPermitidos = ["Victoria", "Emilia", "Rosaura", "Eugenia", "Ignacio", "Arturo", "Ness"];
+
+// Definir los íconos personalizados
+const iconos = {
+    "Victoria": "🌙❤️",
+    "Emilia": "🕯️✨", 
+    "Rosaura": "🌸",
+    "Eugenia": "🐦",
+    "Ignacio": "🔱",
+    "Arturo": "🎶",
+    "Ness": "🔥"
+};
+
 const calaveritas = {
     Victoria: `En el Mictlán la vio la luna brillar,\nVictoria sus pasos no podía ya ocultar.\nEntre sombras y viento su alma temblaba,\ny el recuerdo de errores su pecho ahogaba.\n\nSus sueños dorados flotaban sin cesar,\npero la pereza la hacía titubear.\nLos pétalos caían con un lento rugir,\ny su corazón noble no dejaba de latir.\n\nLos muertos susurraban secretos del ayer,\ny Victoria escuchaba sin saber qué hacer.\nEl río de almas le guiaba la verdad,\nmostrándole caminos de amor y lealtad.\n\nLa noche oscura envolvía su andar,\nsus dudas querían su espíritu quebrar.\nPero un hilo brillante surgió entre el dolor,\nVictoria lo siguió, guiada por el amor.\n\nUn murmullo surgió de un rincón sombrío,\nun hilo brillante que guiaba su desvarío.\nVictoria sonrió y en sus labios brilló,\notro nombre desbloquear, su destino eligió.`,
 
     Emilia: `Entre la niebla Emilia se abrió paso,\ncon su energía pura, aunque sentía el ocaso.\nSus manos temblaban, su cuerpo frágil estaba,\npero su alma ardiente jamás se rendía, ni callaba.\n\nPétalos dorados la rodeaban al andar,\ny los susurros de Victoria la volvieron a animar.\nEl Mictlán parecía un mundo sin final,\npero un hilo de esperanza iluminó su andar fatal.\n\nEntre tumbas y sombras sus pasos resonaban,\ny voces antiguas su corazón tocaban.\nEl lamento de los muertos la hizo temblar,\npero su risa y arte la volvieron a levantar.\n\nCada rincón oscuro la retaba sin cesar,\nsus manos creativas buscaban cómo escapar.\nEl viento le hablaba de historias por venir,\ny Emilia comprendió que debía persistir.\n\nCon risa y arte, Emilia halló su destino,\ny otro nombre esperaba, un secreto divino.\nSu calavera brilló entre sombras y dolor,\ndesbloquear otro ser era ahora su labor.`,
 
-    Rosaura: `Rosaura avanzaba con pasos de fuego,\nel Mictlán la observaba, cruel y sin ruego.\nSu carácter impetuoso temía que cayera,\npero era su fuerza interior que la elevaba y sostuviera.\n\nEntre lamentos y ecos, el mundo parecía caer,\nsus dudas y temores la querían retener.\nLos pétalos danzaban, girando sin parar,\ny un hilo invisible la invitó a continuar.\n\nEl viento gritaba secretos del dolor,\npero ella avanzaba con ímpetu y valor.\nCada sombra la probaba sin compasión,\npero su alma valiente no conocía rendición.\n\nEn las tinieblas, un hilo dorado apareció,\ny Rosaura comprendió que alguien la guió.\nSus hermanas y familia la aguardaban al final,\ny un nuevo nombre brillaba entre lo abismal.\n\nRosaura entendió que su familia la guiaba,\ny otro nombre aguardaba, mientras la historia avanzaba.\nCon risa y bravura, su destino cambió,\nun nuevo ser en la cadena el Mictlán añadió.`,
+    Rosaura: `Rosaura avanzaba con pasos de fuego,\nel Mictlán la observaba, cruel y sin ruego.\nSu carácter impetuoso temía que cayera,\npero era su fuerza interior que la elevaba y sostuviera.\n\nEntre lamentos y ecos, el mundo parecía caer,\nsus dudas y temores la querían retener.\nLos pétalos danzaban, girando sin parar,\ny un hilo invisible la invitó a continuar.\n\nEl viento gritaba secretos del dolor,\npero ella avanzaba con ímpetu y valor.\nCada sombra la probaba sin compasión,\npero su alma valiente no conocía rendición.\n\nEn las tinieblas, un hilo dorado apareció,\ny Rosaura comprendió que alguien la guio.\nSus hermanas y familia la aguardaban al final,\ny un nuevo nombre brillaba entre lo abismal.\n\nRosaura entendió que su familia la guiaba,\ny otro nombre aguardaba, mientras la historia avanzaba.\nCon risa and bravura, su destino cambió,\nun nuevo ser en la cadena el Mictlán añadió.`,
 
-    Eugenia: `Eugenia sintió el peso de su hogar,\nel desorden pasado la quería atrapar.\nEntre sombras y susurros la desesperanza crecía,\npero su alma enérgica nunca se rendía.\n\nPétalos dorados como lágrimas caían,\ny la memoria de sus hijas su espíritu encendía.\nEl Mictlán rugía, oscuro y cruel,\npero su mirada firme dibujó un hilo de miel.\n\nEl eco de los muertos le habló sin cesar,\nmostrándole caminos que debía intentar.\nEl caos la llamaba con un grito feroz,\npero Eugenia avanzó con un corazón veloz.\n\nSu fuerza maternal irradiaba luz,\naun cuando la noche deseaba verla en su cruz.\nLos nombres de sus hijas flotaban en el aire,\nguiando su destino con un hilo de oro.\n\nCon determinación, Eugenia avanzó,\ny un nuevo nombre entre sombras encontró.\nGuía y madre eterna, su luz brilló,\ny otro alma al juego de recuerdos sumó.`,
+    Eugenia: `Eugenia sintió el peso de su hogar,\nel desorden pasado la quería atrapar.\nEntre sombras y susurros la desesperanza crecía,\npero su alma enérgica nunca se rendía.\n\nPétalos dorados como lágrimas caían,\ny la memoria de sus hijas su espíritu encendía.\nEl Mictlán rugía, oscuro y cruel,\npero su mirada firme dibujó un hilo de miel.\n\nEl eco de los muertos le habló sin cesar,\nmostrándole caminos que debía intentar.\nEl caos la llamaba con un grito feroz,\npero Eugenia avanzó con un corazón veloz.\n\nSu fuerza maternal irradiaba luz,\naun cuando la noche deseaba verla en su cruz.\nLos nombres de sus hijas flotaban en el aire,\nguiando su destino con un hilo de oro.\n\nCon determinación, Eugenia avanzó,\ny un nuevo nombre entre sombras encontró.\nGuía y madre eterna, su luz brilló,\ny otra alma al juego de recuerdos sumó.`,
 
     Ignacio: `Ignacio vagaba entre pasillos sombríos,\ncurioso y sabio, temía mil desvaríos.\nSus pasos eran lentos, sus dudas pesadas,\npero su voz firme guiaba almas desamparadas.\n\nEntre ecos y lamentos, escuchó un rumor,\nun hilo que lo llamaba, un secreto en flor.\nPétalos y brumas danzaban sin fin,\ny su destino se unió al de aquel confín.\n\nLos susurros le contaban historias antiguas,\ny cada palabra despertaba mil intrigas.\nEl viento traía memorias de otro lugar,\ny su sabiduría supo el camino hallar.\n\nSus errores pasados no lo hicieron caer,\nsu valor y experiencia lo ayudaron a vencer.\nCon paso firme, otro nombre desbloqueó,\ny un hilo dorado su destino selló.\n\nCon audacia y experiencia, Ignacio persistió,\ny otro nombre secreto el Mictlán descubrió.\nEntre sombras y luces, su camino trazó,\ny otra alma hacia la historia atrajo.`,
 
@@ -237,7 +249,7 @@ function actualizarUnlockedNames() {
     div.innerHTML = "";
     unlockedNames.forEach((n) => {
         const btn = document.createElement("button");
-        btn.innerText = n;
+        btn.innerHTML = `${iconos[n]} ${n}`; // Agregar ícono al botón
         btn.className = "name-button";
         btn.style.display = "inline-block";
         btn.onclick = () => mostrarCalaverita(n);
@@ -397,34 +409,34 @@ function mostrarFinal() {
     const listaPoemas = document.getElementById("poemasLista");
     listaPoemas.innerHTML = "";
 
-    // Agregar PRIMERO "El Último Susurro"
-    const itemFinal = document.createElement("div");
+    // Agregar PRIMERO "El Último Susurro" como botón
+    const itemFinal = document.createElement("button");
     itemFinal.className = "poema-item activo";
-    itemFinal.textContent = "💀 El Último Susurro";
+    itemFinal.innerHTML = "💀 El Último Susurro";
     itemFinal.onclick = function () {
         document.querySelectorAll(".poema-item").forEach((el) => {
             el.classList.remove("activo");
         });
         this.classList.add("activo");
         document.getElementById("poemaContenido").innerHTML =
-            `<h3 style="color: #8B0000; text-align: center;">El Último Susurro del Mictlán</h3>
-       <div class="poema-texto">${finalPoema}</div>`;
+            `<h3 style="color: #8B0000; text-align: center; margin-bottom: 20px;">💀 El Último Susurro del Mictlán</h3>
+             <div class="poema-texto-final">${finalPoema}</div>`;
     };
     listaPoemas.appendChild(itemFinal);
 
-    // Luego agregar los nombres
+    // Luego agregar los nombres como botones con íconos
     listaPermitidos.forEach((nombre) => {
-        const item = document.createElement("div");
+        const item = document.createElement("button");
         item.className = "poema-item";
-        item.textContent = nombre;
+        item.innerHTML = `${iconos[nombre]} ${nombre}`;
         item.onclick = function () {
             document.querySelectorAll(".poema-item").forEach((el) => {
                 el.classList.remove("activo");
             });
             this.classList.add("activo");
             document.getElementById("poemaContenido").innerHTML =
-                `<h3 style="color: #ff8c00; text-align: center;">${nombre}</h3>
-         <div class="poema-texto">${calaveritas[nombre]}</div>`;
+                `<h3 style="color: #ff8c00; text-align: center; margin-bottom: 20px;">${iconos[nombre]} ${nombre} ${iconos[nombre]}</h3>
+                 <div class="poema-texto-final">${calaveritas[nombre]}</div>`;
         };
         listaPoemas.appendChild(item);
     });
@@ -433,123 +445,37 @@ function mostrarFinal() {
     itemFinal.click();
 }
 
-function mostrarPoemaCompleto() {
-    const mensajeInicial = `<div class="mensaje-inicial">
-<p>Estas crónicas fueron tejidas con los hilos de la noche,</p>
-<p>bañadas en luna y susurradas por el viento del olvido.</p>
-<p>Cada palabra nació del respeto a su memoria,</p>
-<p>cada verso es un tributo a su viaje eterno.</p>
-<br>
-<p>Con la oscuridad como testigo y el silencio como compañero,</p>
-<p>este legado queda escrito para la eternidad.</p>
-</div>`;
-
-    let poemaCompleto = "";
-
-    // Agregar todos los poemas individuales
-    listaPermitidos.forEach((nombre) => {
-        poemaCompleto += `\n\n=== ${nombre} ===\n\n${calaveritas[nombre]}\n`;
+function mostrarUltimoSusurro() {
+    // Simplemente mostrar "El Último Susurro" sin generar PDF
+    document.querySelectorAll(".poema-item").forEach((el) => {
+        el.classList.remove("activo");
     });
-
-    // Agregar el poema final
-    poemaCompleto += `\n\n=== EL ÚLTIMO SUSURRO DEL MICTÁN ===\n\n${finalPoema}`;
-
+    
+    // Activar el botón "El Último Susurro"
+    const itemFinal = document.querySelector(".poema-item");
+    if (itemFinal) {
+        itemFinal.classList.add("activo");
+    }
+    
     document.getElementById("poemaContenido").innerHTML =
-        `<h3 style="color: #8B0000; text-align: center;">La Eternidad Completa</h3>
-     ${mensajeInicial}
-     <div class="poema-completo">${poemaCompleto}</div>`;
-
-    // Ocultar la lista lateral
-    document.getElementById("poemasLista").style.display = "none";
-    document.querySelector(".poema-contenido").style.width = "100%";
-
-    // Cambiar los botones
-    document.querySelector(".botones-final").innerHTML = `
-    <button onclick="volverALista()">🌑 Regresar a los Susurros Individuales</button>
-    <button onclick="downloadPDF()">📜 Descargar las Crónicas del Mictlán</button>
-  `;
-
-    // Descargar automáticamente el PDF
-    downloadPDF();
-}
-
-function volverALista() {
-    document.getElementById("poemasLista").style.display = "block";
-    document.querySelector(".poema-contenido").style.width = "70%";
-
-    document.querySelector(".botones-final").innerHTML = `
-    <button onclick="mostrarPoemaCompleto()">💀 Revelar la Eternidad Completa</button>
-    <button onclick="downloadPDF()">📜 Descargar las Crónicas del Mictlán</button>
-  `;
-
-    document.querySelectorAll(".poema-item")[0].click();
+        `<h3 style="color: #8B0000; text-align: center; margin-bottom: 20px;">💀 El Último Susurro del Mictlán</h3>
+         <div class="poema-texto-final">${finalPoema}</div>`;
 }
 
 function downloadPDF() {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-
-    // Configuración inicial
-    doc.setFillColor(26, 6, 6);
-    doc.rect(0, 0, 210, 297, "F");
-    doc.setTextColor(255, 221, 153);
-
-    let y = 20;
-
-    // Título
-    doc.setFontSize(20);
-    doc.setTextColor(255, 140, 0);
-    doc.text("Las Crónicas del Mictlán", 105, y, { align: "center" });
-    y += 15;
-
-    // Agregar el mensaje inicial PRIMERO en el PDF
-    doc.setFontSize(12);
-    doc.setTextColor(255, 221, 153);
-    const mensajeInicial = "Estas crónicas fueron tejidas con los hilos de la noche, bañadas en luna y susurradas por el viento del olvido. Cada palabra nació del respeto a su memoria, cada verso es un tributo a su viaje eterno.\n\nCon la oscuridad como testigo y el silencio como compañero, este legado queda escrito para la eternidad.";
-    const mensajeLines = doc.splitTextToSize(mensajeInicial, 180);
-    doc.text(mensajeLines, 15, y);
-    y += mensajeLines.length * 6 + 15;
-
-    // Agregar todos los poemas al PDF
-    listaPermitidos.forEach((nombre) => {
-        if (y > 250) {
-            doc.addPage();
-            doc.setFillColor(26, 6, 6);
-            doc.rect(0, 0, 210, 297, "F");
-            y = 20;
-        }
-
-        doc.setFontSize(16);
-        doc.setTextColor(255, 204, 0);
-        doc.text(nombre + ":", 15, y);
-        y += 10;
-
-        doc.setFontSize(11);
-        doc.setTextColor(255, 221, 153);
-        const lines = doc.splitTextToSize(calaveritas[nombre], 180);
-        doc.text(lines, 15, y);
-        y += lines.length * 6 + 10;
-    });
-
-    // Agregar el último susurro
-    if (y > 230) {
-        doc.addPage();
-        doc.setFillColor(26, 6, 6);
-        doc.rect(0, 0, 210, 297, "F");
-        y = 20;
-    }
-
-    doc.setFontSize(18);
-    doc.setTextColor(139, 0, 0);
-    doc.text("El Último Susurro del Mictlán", 105, y, { align: "center" });
-    y += 15;
-
-    doc.setFontSize(12);
-    doc.setTextColor(255, 221, 153);
-    const finalLines = doc.splitTextToSize(finalPoema, 180);
-    doc.text(finalLines, 15, y);
-
-    doc.save("Cronicas_del_Mictlan.pdf");
+    // Descargar el PDF desde el repositorio de GitHub
+    const pdfUrl = "https://github.com/thevisitorwork-source/doc/raw/main/crónicasDelMictlán.pdf";
+    
+    // Crear un enlace temporal para descargar el PDF
+    const link = document.createElement("a");
+    link.href = pdfUrl;
+    link.download = "Crónicas_del_Mictlán.pdf";
+    link.target = "_blank";
+    
+    // Simular clic en el enlace
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
 // ========== PANEL ADMINISTRATIVO ==========
@@ -572,7 +498,7 @@ function mostrarPanelAdmin() {
 <div id="panelAdmin" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 9999; overflow-y: auto; padding: 20px;">
     <div style="max-width: 1200px; margin: 0 auto; background: #1a0606; border: 2px solid #ffbf00; border-radius: 12px; padding: 20px; color: white;">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-            <h2 style="color: #ffcc00;">🌼 Panel de Administración 🌼</h2>
+            <h2 style="color: #ffcc00;">✨🌙 Panel de Administración 🕯️</h2>
             <button onclick="cerrarPanelAdmin()" style="background: #8B0000; color: white; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer;">Cerrar</button>
         </div>
         

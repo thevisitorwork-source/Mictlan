@@ -138,6 +138,32 @@ button:hover {
     color: orange;
 }
 
+/* Estilos para botones de nombres desbloqueados */
+.name-button {
+    width: auto !important;
+    margin: 5px;
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+    min-height: auto !important;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 5px;
+}
+
+.name-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+/* Contenedor de nombres desbloqueados */
+.unlocked-names {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 15px 0;
+}
+
 /* Popup responsive */
 .popup {
     position: fixed;
@@ -220,20 +246,46 @@ button:hover {
     }
 }
 
-/* Asegurar que los botones sean visibles en móviles */
-@media (max-width: 768px) {
-    .pdf-screen {
-        padding-bottom: 80px; /* Espacio extra para los botones */
-    }
-    
-    .botones-final {
-        position: sticky;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.8);
-        padding: 10px;
-        margin-bottom: 0;
-        border-top: 1px solid var(--color-secondary);
-    }
+/* Corregir posición de botones en pantalla final */
+.pdf-screen {
+    padding-bottom: 0; /* Eliminar padding extra */
+}
+
+.botones-final {
+    position: static; /* Quitar posición fija */
+    margin-top: 30px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+}
+
+/* Asegurar que el contenido sea scrollable sin obstrucciones */
+.poema-contenido {
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+    padding-bottom: 20px;
+}
+
+/* Mejorar separadores en PDF visual */
+.separador-poemas {
+    text-align: center;
+    color: #8B0000;
+    font-size: 16px;
+    margin: 20px 0;
+    opacity: 0.7;
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+}
+
+/* Estilo mejorado para títulos con íconos */
+.poema-titulo-completo {
+    color: #ffcc00;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+    padding: 10px;
+    background: rgba(139, 0, 0, 0.2);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 140, 0, 0.3);
 }
 
 /* Pétalos más pequeños en móviles para mejor rendimiento */
@@ -289,6 +341,7 @@ button:hover {
     min-height: calc(100% - 120px);
     gap: 15px;
 }
+
 /* Botones de control */
 .control-buttons {
     position: fixed;
@@ -331,7 +384,13 @@ button:hover {
         font-size: 11px;
         padding: 6px 10px;
     }
+    
+    .name-button {
+        font-size: 12px !important;
+        padding: 6px 10px !important;
+    }
 }
+
 .botones-final {
     display: flex;
     flex-direction: column;
@@ -339,6 +398,7 @@ button:hover {
     margin-top: 15px;
     margin-bottom: 20px; /* Espacio extra en la parte inferior */
 }
+
 @media (min-width: 768px) {
     .botones-final {
         flex-direction: row;
@@ -430,4 +490,220 @@ button:hover {
 /* Mejoras de scroll en móviles */
 .poema-lateral, .poemas-lista, .poema-contenido {
     -webkit-overflow-scrolling: touch;
+}
+
+/* Estilos para los botones de poemas en la pantalla final */
+.poemas-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.poema-item {
+    padding: 12px;
+    background: rgba(139, 0, 0, 0.3);
+    border: 1px solid #ff8c00;
+    border-radius: 8px;
+    color: #ffdd99;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 14px;
+}
+
+.poema-item:hover {
+    background: rgba(139, 0, 0, 0.5);
+    border-color: #ffcc00;
+}
+
+.poema-item.activo {
+    background: rgba(255, 140, 0, 0.3);
+    border-color: #ffcc00;
+    color: #ffcc00;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+}
+
+/* Estilos para el texto del poema centrado */
+.poema-texto-final {
+    white-space: pre-wrap;
+    line-height: 1.6;
+    text-align: center;
+    color: #ffdd99;
+    font-size: 14px;
+    padding: 0 10px;
+}
+
+/* Estilos para la vista completa de poemas */
+.poema-completo-seccion {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(139, 0, 0, 0.2);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 140, 0, 0.3);
+}
+
+.poema-titulo-completo {
+    color: #ffcc00;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    text-shadow: 0 0 5px rgba(255, 204, 0, 0.5);
+}
+
+.poema-texto-completo {
+    white-space: pre-wrap;
+    line-height: 1.6;
+    color: #ffdd99;
+    font-size: 14px;
+    text-align: center;
+}
+
+.separador-poemas {
+    text-align: center;
+    color: #8B0000;
+    font-size: 16px;
+    margin: 20px 0;
+    opacity: 0.7;
+}
+
+/* Mejoras responsive para la pantalla final */
+@media (min-width: 768px) {
+    .poemas-container {
+        flex-direction: row;
+        height: calc(100vh - 150px);
+    }
+    
+    .poemas-lista {
+        width: 30%;
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+    
+    .poema-contenido {
+        width: 70%;
+    }
+}
+
+/* Mejoras específicas para la generación de PDF */
+.poema-texto-completo {
+    white-space: pre-wrap;
+    line-height: 1.8;
+    text-align: center;
+    color: #ffdd99;
+    font-size: 15px;
+    padding: 0 20px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+}
+
+.poema-completo-seccion {
+    margin-bottom: 40px;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.15), rgba(255, 140, 0, 0.1));
+    border-radius: 15px;
+    border: 1px solid rgba(255, 140, 0, 0.2);
+    page-break-inside: avoid;
+}
+
+.poema-titulo-completo {
+    color: #ffcc00;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 22px;
+    text-shadow: 0 0 8px rgba(255, 204, 0, 0.6);
+    padding: 15px;
+    background: rgba(139, 0, 0, 0.25);
+    border-radius: 10px;
+    border: 2px solid rgba(255, 140, 0, 0.3);
+    font-family: 'Georgia', serif;
+}
+
+.separador-poemas {
+    text-align: center;
+    color: #8B0000;
+    font-size: 18px;
+    margin: 30px 0;
+    opacity: 0.8;
+    text-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+    letter-spacing: 5px;
+}
+
+/* Estilo para el mensaje inicial mejorado */
+.mensaje-inicial {
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.25), rgba(255, 140, 0, 0.15));
+    border: 2px solid #8b0000;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 30px 0;
+    text-align: center;
+    font-style: italic;
+    color: #ffdd99;
+    box-shadow: 0 0 25px rgba(255, 140, 0, 0.4);
+    line-height: 2;
+    font-size: 16px;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Georgia', serif;
+}
+
+.mensaje-inicial::before {
+    content: "💀";
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 24px;
+    opacity: 0.7;
+}
+
+.mensaje-inicial::after {
+    content: "💀";
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    font-size: 24px;
+    opacity: 0.7;
+}
+
+.mensaje-inicial p {
+    margin: 0;
+    padding: 8px 0;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Mejoras de legibilidad para el contenido del poema */
+.poema-contenido {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 20px;
+    margin: 10px 0;
+}
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 1200px) {
+    .poema-texto-completo {
+        font-size: 16px;
+        line-height: 2;
+    }
+    
+    .poema-titulo-completo {
+        font-size: 24px;
+    }
+}
+
+/* Estilos para emojis en títulos */
+.poema-titulo-completo {
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+/* Mejora de contraste para mejor legibilidad PDF */
+@media print {
+    .poema-texto-completo {
+        color: #2b0a0a !important;
+        text-shadow: none !important;
+    }
+    
+    .poema-titulo-completo {
+        color: #8b0000 !important;
+    }
 }
