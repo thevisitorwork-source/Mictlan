@@ -1,0 +1,522 @@
+:root {
+    --color-primary: #ffcc00;
+    --color-secondary: #8b0000;
+    --color-background: #1a0606;
+    --color-text: #fff3e6;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Contenedor principal responsive */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px;
+    gap: 15px;
+    min-height: 100vh;
+}
+
+/* Para tablets y escritorio - layout horizontal */
+@media (min-width: 768px) {
+    .game-container {
+        flex-direction: row;
+        height: 100vh;
+        padding: 20px;
+    }
+}
+
+/* Contenedores del juego */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    border: 2px solid var(--color-primary);
+    border-radius: 12px;
+    box-shadow: 0 0 20px orange;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    display: none;
+    position: relative;
+    z-index: 2;
+}
+
+/* En tablets/escritorio, ancho fijo */
+@media (min-width: 768px) {
+    .container {
+        width: 380px;
+        min-width: 380px;
+    }
+}
+
+/* Panel lateral de poemas */
+.poema-lateral {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(6px);
+    border: 2px solid var(--color-primary);
+    border-radius: 12px;
+    box-shadow: 0 0 20px orange;
+    padding: 15px;
+    display: none;
+    position: relative;
+    z-index: 2;
+    overflow-y: auto;
+    flex: 1;
+    min-height: 300px;
+}
+
+/* Mejoras para móviles pequeños */
+@media (max-width: 480px) {
+    .container, .poema-lateral {
+        padding: 15px;
+        margin: 5px;
+    }
+}
+
+/* Texto del poema responsive */
+.poema-texto {
+    white-space: pre-wrap;
+    line-height: 1.5;
+    font-size: clamp(12px, 3vw, 16px);
+    color: #ffdd99;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+}
+
+/* Títulos responsive */
+h1 {
+    color: var(--color-primary);
+    text-shadow: 0 0 6px #ff6f00;
+    font-size: clamp(18px, 5vw, 24px);
+    margin: 10px 0;
+}
+
+/* Input responsive */
+input {
+    width: 100%;
+    max-width: 200px;
+    padding: 12px;
+    font-size: clamp(16px, 4vw, 20px);
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 2px solid orange;
+    text-align: center;
+}
+
+/* Botones responsive */
+button {
+    width: 100%;
+    padding: 12px;
+    font-weight: bold;
+    background-color: orange;
+    border: 2px solid orange;
+    color: #2b0a0a;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: clamp(14px, 4vw, 16px);
+    min-height: 44px;
+}
+
+button:hover {
+    background-color: #2b0a0a;
+    color: orange;
+}
+
+/* Popup responsive */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(43, 10, 10, 0.96);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    color: var(--color-text);
+    text-align: center;
+    padding: 20px;
+}
+
+.popup-content {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid orange;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px orange;
+    width: 100%;
+    max-width: 400px;
+    z-index: 20;
+}
+
+.popup input {
+    width: 80%;
+    padding: 12px;
+    font-size: clamp(16px, 4vw, 18px);
+    border: 2px solid orange;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 10px;
+    background: #fff8e1;
+    color: #2b0a0a;
+}
+
+.calaverita {
+    font-style: italic;
+    margin-top: 10px;
+    font-size: clamp(12px, 3vw, 13px);
+    color: #ffdd99;
+}
+
+.advertencia {
+    font-size: clamp(10px, 2.5vw, 11px);
+    color: #ffaa88;
+    margin-top: 5px;
+}
+
+/* Estilos mejorados para pétalos */
+.petalo {
+    position: fixed;
+    top: -20px;
+    width: 14px;
+    height: 14px;
+    background-color: #ffb300;
+    border-radius: 50% 50% 0 50%;
+    opacity: 0.8;
+    animation: caer 8s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes caer {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.8;
+    }
+    80% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Pétalos más pequeños en móviles para mejor rendimiento */
+@media (max-width: 768px) {
+    .petalo {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+.barra {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.intento-bloque {
+    width: clamp(18px, 5vw, 22px);
+    height: clamp(6px, 2vw, 8px);
+    background-color: limegreen;
+    border-radius: 3px;
+}
+
+.intento-bloque.inactivo {
+    background-color: gray;
+}
+
+/* Pantalla final PDF responsive */
+.pdf-screen {
+    display: none;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.95);
+    color: var(--color-text);
+    width: 100%;
+    height: 100vh;
+    border: 2px solid var(--color-secondary);
+    border-radius: 12px;
+    box-shadow: 0 0 30px var(--color-secondary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.poemas-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 120px);
+    gap: 15px;
+}
+
+@media (min-width: 768px) {
+    .poemas-container {
+        flex-direction: row;
+    }
+}
+
+.poemas-lista {
+    width: 100%;
+    background: rgba(139, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 10px;
+    overflow-y: auto;
+    border: 1px solid var(--color-secondary);
+    max-height: 200px;
+}
+
+@media (min-width: 768px) {
+    .poemas-lista {
+        width: 30%;
+        max-height: none;
+    }
+}
+
+.poema-contenido {
+    width: 100%;
+    background: rgba(139, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+    overflow-y: auto;
+    border: 1px solid var(--color-secondary);
+    flex: 1;
+}
+
+@media (min-width: 768px) {
+    .poema-contenido {
+        width: 70%;
+    }
+}
+
+.poema-item {
+    padding: 10px;
+    margin: 8px 0;
+    background: rgba(255, 140, 0, 0.1);
+    border-radius: 5px;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+    font-size: clamp(12px, 3vw, 14px);
+}
+
+.poema-item:hover {
+    background: rgba(255, 140, 0, 0.2);
+    border: 1px solid #ff8c00;
+}
+
+.poema-item.activo {
+    background: rgba(255, 140, 0, 0.3);
+    border: 1px solid #ff8c00;
+    box-shadow: 0 0 8px #ff8c00;
+}
+
+.final-title {
+    color: #8b0000;
+    text-shadow: 0 0 10px #ff0000;
+    font-size: clamp(18px, 5vw, 22px);
+    margin-bottom: 15px;
+    text-align: center;
+    font-style: italic;
+}
+
+.unlocked-names {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.name-button {
+    padding: 8px 12px;
+    background: orange;
+    color: #2b0a0a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+    font-size: clamp(11px, 3vw, 12px);
+    min-height: 32px;
+}
+
+.reglas {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #ffaa88;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+    font-size: clamp(11px, 3vw, 12px);
+    text-align: center;
+    font-style: italic;
+}
+
+.reglas h3 {
+    margin: 0 0 12px 0;
+    color: #ffcc00;
+    text-align: center;
+    font-style: normal;
+    font-size: clamp(13px, 3.5vw, 15px);
+}
+
+.reglas ul {
+    margin: 0;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.reglas li {
+    margin-bottom: 10px;
+    line-height: 1.4;
+    position: relative;
+    padding-left: 20px;
+}
+
+.reglas li:before {
+    content: "💀";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.poema-completo {
+    white-space: pre-wrap;
+    line-height: 1.8;
+    font-size: clamp(13px, 3.5vw, 15px);
+    color: #ffdd99;
+    text-align: justify;
+}
+
+.mensaje-final {
+    background: rgba(139, 0, 0, 0.3);
+    border: 1px solid #8b0000;
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 30px;
+    text-align: center;
+    font-style: italic;
+    color: #ffaa88;
+}
+
+/* Botones finales responsive */
+.botones-final {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+@media (min-width: 768px) {
+    .botones-final {
+        flex-direction: row;
+        justify-content: center;
+    }
+}
+
+.botones-final button {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .botones-final button {
+        width: auto;
+        min-width: 200px;
+    }
+}
+
+/* Estilo especial para el mensaje inicial */
+.mensaje-inicial {
+    background: linear-gradient(135deg, rgba(139, 0, 0, 0.3), rgba(255, 140, 0, 0.2));
+    border: 1px solid #8b0000;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    font-style: italic;
+    color: #ffdd99;
+    box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
+    line-height: 1.8;
+    font-size: clamp(14px, 3.5vw, 16px);
+    position: relative;
+    overflow: hidden;
+}
+
+.mensaje-inicial::before {
+    content: "💀";
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 18px;
+    opacity: 0.6;
+}
+
+.mensaje-inicial::after {
+    content: "💀";
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    font-size: 18px;
+    opacity: 0.6;
+}
+
+.mensaje-inicial p {
+    margin: 0;
+    padding: 5px 0;
+}
+
+/* Admin button siempre visible pero pequeño */
+.admin-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+    padding: 8px 12px;
+    background: rgba(139, 0, 0, 0.3);
+    color: #ffaa88;
+    border: 1px solid #ffaa88;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+    width: auto !important;
+    min-width: auto;
+}
+
+.admin-btn:hover {
+    opacity: 1;
+}
+
+/* Prevenir zoom en inputs en iOS */
+@media (max-width: 768px) {
+    input, select, textarea {
+        font-size: 16px;
+    }
+}
+
+/* Mejoras de scroll en móviles */
+.poema-lateral, .poemas-lista, .poema-contenido {
+    -webkit-overflow-scrolling: touch;
+}
