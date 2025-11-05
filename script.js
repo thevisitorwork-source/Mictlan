@@ -18,6 +18,45 @@ const calaveritas = {
 
 const finalPoema = `Y en el silencio profundo de aquel río sin orillas,\ndonde las sombras danzaban con las almas sencillas,\nlos pétalos dorados flotaban como susurros de antaño,\ntrazando caminos de luz sobre el oscuro paño.\n\nVictoria, Emilia y Rosaura, unidas en abrazo eterno,\nsus risas quebraron el frío del universo moderno.\nEugenia e Ignacio, guardianes del hogar sagrado,\nvieron sus esfuerzos y virtudes al fin recompensado.\n\nArturo, con su voz, tejió historias entre la penumbra,\ny los ecos del Mictlán se convirtieron en un dulce andar.\nSu amor por Emilia, tierno y fuerte como la vida,\nresplandecía entre las sombras, luz que nunca se olvida.\n\nJuntos compartieron secretos, risas y sus temores,\nsus corazones entrelazados, vencedores de temores.\nPero Ness, en su soledad, vio que su hora llegaba,\ny con un suspiro profundo, su sacrificio entregaba.\n\nAntes de fundirse con la bruma y los pétalos de oro,\nmiró a Victoria, su amor perdido y dijo sonoro:\n"Que tus días brillen sin mí, alma querida,\nmi corazón queda contigo, más allá de esta vida."\n\nSu amor callado, su entrega y su corazón valiente,\nse fundieron con el río de almas, eternamente.\nLas sombras retrocedieron y la bruma se hizo ligera,\nmientras cada nombre resplandecía bajo la luz certera.\n\nEl Mictlán suspiró, los muertos aplaudieron,\ny los pétalos de cempasúchil al viento renacieron.\nPorque en la oscuridad más densa, siempre hay un hilo dorado,\ny las almas que se aman jamás quedan olvidadas.\n\nY así, entre la noche eterna y la luz que no se extingue,\nlos nombres guardados, en un lazo que persiste y distingue,\nbrillan como constelaciones sobre el río sombrío,\ny Ness, silencioso, observa con amor escondido.\n\nEl ciclo se cerró, y la vida y la muerte, en danza infinita,\nentrelazaron destinos, lágrimas y sonrisas benditas.\nEl Mictlán cantó su última canción de amor y entrega,\ny las almas salvadas flotaron, libres, envueltas en un manto de fulgor.`;
 
+// ========== CONTROL DE MÚSICA ==========
+let musicaActiva = true;
+
+function toggleMusica() {
+    const audio = document.getElementById("bg-music");
+    const botonMusica = document.getElementById("musicToggle");
+    
+    if (musicaActiva) {
+        audio.pause();
+        botonMusica.innerHTML = "🎵 Invocar Cánticos";
+        botonMusica.style.color = "#00ff88";
+        musicaActiva = false;
+    } else {
+        audio.play().catch(e => console.log("Audio requiere interacción del usuario"));
+        botonMusica.innerHTML = "🔇 Silenciar Cánticos";
+        botonMusica.style.color = "#ffaa88";
+        musicaActiva = true;
+    }
+}
+
+// También puedes agregar esta función para manejar mejor el audio
+function pausarMusica() {
+    const audio = document.getElementById("bg-music");
+    audio.pause();
+    const botonMusica = document.getElementById("musicToggle");
+    botonMusica.innerHTML = "🎵 Invocar Cánticos";
+    botonMusica.style.color = "#00ff88";
+    musicaActiva = false;
+}
+
+function reanudarMusica() {
+    const audio = document.getElementById("bg-music");
+    audio.play().catch(e => console.log("Audio requiere interacción del usuario"));
+    const botonMusica = document.getElementById("musicToggle");
+    botonMusica.innerHTML = "🔇 Silenciar Cánticos";
+    botonMusica.style.color = "#ffaa88";
+    musicaActiva = true;
+}
+
 // Variables de juego
 let randomNumber, invalidAttempts, validAttemptsLeft;
 let totalIntentos = 10;
