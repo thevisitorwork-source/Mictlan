@@ -464,7 +464,7 @@ function mostrarUltimoSusurro() {
 
 function downloadPDF() {
     // Descargar el PDF desde el repositorio de GitHub
-    const pdfUrl = "https://github.com/thevisitorwork-source/doc/raw/main/crónicasDelMictlán.pdf";
+    const pdfUrl = "doc/crónicasDelMictlán.pdf";
     
     // Crear un enlace temporal para descargar el PDF
     const link = document.createElement("a");
@@ -623,4 +623,5 @@ function adminClearData() {
         adminRefresh();
         alert("Historial eliminado correctamente.");
     }
+
 }
